@@ -38,13 +38,10 @@ public class Channel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @NotNull
-    @Size(max = 50)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(length = 50)
     private Long id;
 
-    @Size(max = 255)
     private Genre preference;
 
     @ManyToOne

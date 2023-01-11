@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import com.example.demo.Domain.NewsArticle;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public interface NewsArticleRepository extends JpaRepository<NewsArticle, Long> {
     Optional<NewsArticle> findById(Long Id);
 }
