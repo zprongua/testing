@@ -3,18 +3,9 @@ package com.example.demo.Domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 import org.springframework.data.annotation.Id;
-import javax.validation.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import com.example.demo.Config.Constants;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,22 +13,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * A user.
  */
-@Data
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Entity
 @Table(name = "user")
 public class User {
@@ -46,10 +30,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     private String login;
 
-    @NotNull
     private String password;
 
     private String firstName;

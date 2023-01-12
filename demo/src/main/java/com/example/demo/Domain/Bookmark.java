@@ -13,11 +13,9 @@ public class Bookmark {
     private Long id;
 
     @ManyToMany
-    @JoinColumn(name = "newsArticle_id")
-    private Long newsArticleId;
+    private Long newsarticleId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private Long userId;
 
     public Bookmark() {

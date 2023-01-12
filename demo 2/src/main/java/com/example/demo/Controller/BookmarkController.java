@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.Domain.*;//Domain.Bookmark;
-import com.example.demo.Repository.*;
+import com.example.demo.Domain.Bookmark;
+import com.example.demo.Repository.BookmarkRepository;
 
 @Controller
 @RequestMapping("/bookmark")
@@ -26,11 +26,15 @@ public class BookmarkController {
         return bookmarkRepository.findBookmarkById(id);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Bookmark> create(@RequestBody Bookmark bookmark) {
-        bookmarkRepository.save(bookmark);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<Bookmark> createBookmark(@RequestBody Bookmark bookmark) {
+        return new ResponseEntity<>(bookmarkRepository.save(bookmark), HttpStatus.CREATED);
     }
+    // @PostMapping("/add")
+    // public ResponseEntity<Bookmark> create(@RequestBody Bookmark bookmark) {
+    // bookmarkRepository.save(bookmark);
+    // return new ResponseEntity<>(HttpStatus.OK);
+    // }
 
     @RequestMapping(value = "/{bookmarkId}", method = RequestMethod.DELETE)
     public ResponseEntity<Bookmark> delete(@PathVariable Long id) {

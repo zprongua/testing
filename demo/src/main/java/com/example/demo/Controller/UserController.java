@@ -11,15 +11,11 @@ import com.example.demo.Domain.User;
 import com.example.demo.Repository.UserRepository;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @GetMapping
     public ResponseEntity<Iterable<User>> getAllBookmarks() {
